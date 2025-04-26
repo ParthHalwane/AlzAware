@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Risk Assessment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='Risk.css') }}"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .alert {
+        font-size: 1.2rem;
+    }
+</style>
+
+<body class="bg-">
+
+    <div class="d-flex">
+
+        <div class="sidebar bg-dark text-white p-3">
+            <!-- <h4>Alzheimer's Prediction</h4> -->
+            <div class="text-center mt-4">
+                <div class="d-inline-flex align-items-center gap-3">
+                    <div class="text-start">
+                        <h2 class="mb-0 fw-bold" style="color: #ffffff;">🧠 AlzAware</h2>
+                        <small class="text-muted fst-italic">Assess, Empower, and Play for a Healthier Mind</small>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="/risk-assessment" class="nav-link text-white">Risk Assessment</a></li>
+                <li class="nav-item"><a href="/get-recommendations" class="nav-link text-white">Get Recommendations</a>
+                </li>
+                <li class="nav-item"><a href="/brain-games" class="nav-link text-white">Brain Games</a></li>
+                <li class="nav-item"><a href="/alzheimers-education" class="nav-link text-white">Knowledge Center</a>
+                </li>
+                <li class="nav-item"><a href="/about" class="nav-link text-white">About</a></li>
+            </ul>
+        </div>
+
+        <div class="container mt-4">
+            <h2 class="text-center text-dark">🧠 Alzheimer's Risk Assessment</h2>
+            <p class="text-center text-muted text-dark">Fill out the form below to assess your Alzheimer's risk.</p>
+
+            <form action="/predict" method="POST" class="row g-3" id="riskForm">
+
+                <!-- Age -->
+                <div class="col-md-4">
+                    <label class="form-label">Age<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Your current age in years."></i></label>
+                    <input type="number" step="1" min="18" max="100" name="Age" class="form-control" required>
+                </div>
+
+                <!-- BMI -->
+                <div class="col-md-4">
+                    <label class="form-label">BMI (15-40)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Body Mass Index calculated using height and weight. Range: 15 to 40."></i></label>
+                    <input type="number" step="0.01" min="15" max="40" name="BMI" class="form-control" required>
+                </div>
+
+                <!-- Alcohol -->
+                <div class="col-md-4">
+                    <label class="form-label">Alcohol Consumption (Units/week - 0-20)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Average alcohol units consumed per week. Range: 0 to 20."></i></label>
+                    <input type="number" step="0.01" min="0" max="20" name="AlcoholConsumption" class="form-control"
+                        required>
+                </div>
+
+                <!-- Physical Activity -->
+                <div class="col-md-4">
+                    <label class="form-label">Physical Activity (0-10)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Level of weekly physical activity. Higher is better. Range: 0 to 10"></i></label>
+                    <input type="number" step="0.01" min="0" max="10" name="PhysicalActivity" class="form-control"
+                        required>
+                </div>
+
+                <!-- Diet Quality -->
+                <div class="col-md-4">
+                    <label class="form-label">Diet Quality (0-10)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Nutritional quality of your diet. Range: 0 (poor) to 10 (excellent)."></i></label>
+                    <input type="number" step="0.01" min="0" max="10" name="DietQuality" class="form-control" required>
+                </div>
+
+                <!-- Sleep Quality -->
+                <div class="col-md-4">
+                    <label class="form-label">Sleep Quality (4-10)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Average sleep quality score. Range: 4 (poor) to 10 (excellent)."></i></label>
+                    <input type="number" step="0.01" min="4" max="10" name="SleepQuality" class="form-control" required>
+                </div>
+
+                <!-- Systolic BP -->
+                <div class="col-md-4">
+                    <label class="form-label">Systolic BP (90-180)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Upper number in blood pressure reading. Range: 90 to 180 mmHg."></i></label>
+                    <input type="number" step="0.01" min="90" max="180" name="SystolicBP" class="form-control" required>
+                </div>
+
+                <!-- Diastolic BP -->
+                <div class="col-md-4">
+                    <label class="form-label">Diastolic BP (60-120)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Lower number in blood pressure reading. Range: 60 to 120 mmHg."></i></label>
+                    <input type="number" step="0.01" min="60" max="120" name="DiastolicBP" class="form-control"
+                        required>
+                </div>
+
+                <!-- Cholesterol Total -->
+                <div class="col-md-4">
+                    <label class="form-label">Cholesterol Total (150-300)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Total blood cholesterol level. Range: 150 to 300 mg/dL."></i></label>
+                    <input type="number" step="0.01" min="150" max="300" name="CholesterolTotal" class="form-control"
+                        required>
+                </div>
+
+                <!-- LDL -->
+                <div class="col-md-4">
+                    <label class="form-label">Cholesterol LDL (mg/dL 50-200)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Low-density lipoprotein (bad cholesterol). Range: 50 to 200 mg/dL."></i></label>
+                    <input type="number" step="0.01" min="50" max="200" name="CholesterolLDL" class="form-control"
+                        required>
+                </div>
+
+                <!-- HDL -->
+                <div class="col-md-4">
+                    <label class="form-label">Cholesterol HDL (mg/dL 20-100)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="High-density lipoprotein (good cholesterol). Range: 20 to 100 mg/dL."></i></label>
+                    <input type="number" step="0.01" min="20" max="100" name="CholesterolHDL" class="form-control"
+                        required>
+                </div>
+
+                <!-- Triglycerides -->
+                <div class="col-md-4">
+                    <label class="form-label">Cholesterol Triglycerides (mg/dL 50-400)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Blood triglyceride level. Range: 50 to 400 mg/dL."></i></label>
+                    <input type="number" step="0.01" min="50" max="400" name="CholesterolTriglycerides"
+                        class="form-control" required>
+                </div>
+
+                <!-- MMSE -->
+                <div class="col-md-4">
+                    <label class="form-label">MMSE Score (0-30)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Mini-Mental State Exam score to assess cognitive function. Range: 0 to 30."></i></label>
+                    <input type="number" step="0.01" min="0" max="30" name="MMSE" class="form-control" required>
+                </div>
+
+                <!-- Functional Assessment -->
+                <div class="col-md-4">
+                    <label class="form-label">Functional Assessment (0-10)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Evaluation of daily functioning. Range: 0 (poor) to 10 (excellent)."></i></label>
+                    <input type="number" step="0.01" name="FunctionalAssessment" class="form-control" required>
+                </div>
+
+                <!-- Memory Complaints -->
+                <div class="col-md-4">
+                    <label class="form-label">Memory Complaints<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Do you experience noticeable memory problems?"></i></label>
+                    <select class="form-select" name="MemoryComplaints" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Behavioral Problems -->
+                <div class="col-md-4">
+                    <label class="form-label">Behavioral Problems (0-5)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Presence of behavioral issues (e.g., mood swings, aggression). Range: 0 to 5."></i></label>
+                    <input type="number" step="1" min="0" max="5" name="BehavioralProblems" class="form-control"
+                        required>
+                </div>
+
+                <!-- ADL -->
+                <div class="col-md-4">
+                    <label class="form-label">ADL (0-10)<i style="font-size:12px;"
+                            class="bi bi-question-circle-fill ms-1 tooltip-icon" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Ability to perform Activities of Daily Living. Range: 0 (dependent) to 10."></i></label>
+                    <input type="number" step="0.01" min="0" max="10" name="ADL" class="form-control" required>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12 mt-3 text-center">
+                    <button type="submit" class="btn btn-primary px-4">Predict</button>
+                </div>
+            </form>
+
+            <!-- Optional result area -->
+
+            <div id="resultBox" class="alert alert-info mt-4 d-none text-center" role="alert">
+                <strong id="result"></strong>
+            </div>
+
+            <!-- Information Section -->
+            <div class="mt-5">
+                <h3 class="text-center">Parameter Information</h3>
+                <p class="text-center text-muted">Click on each category to learn more.</p>
+
+                <div class="accordion" id="infoAccordion">
+
+                    <!-- BMI -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#bmiInfo">
+                                BMI (Body Mass Index)
+                            </button>
+                        </h2>
+                        <div id="bmiInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 15 to 40.</b>
+                                <ul>
+                                    <li>Below 18.5: Underweight</li>
+                                    <li>18.5 to 24.9: Normal weight</li>
+                                    <li>25 to 29.9: Overweight</li>
+                                    <li>30 and above: Obese</li>
+                                    <li>40 or above: Severe obesity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alcohol Consumption -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#alcoholInfo">
+                                Alcohol Consumption
+                            </button>
+                        </h2>
+                        <div id="alcoholInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 20 units per week</b>
+                                <ul>
+                                    <li><b>0:</b> No alcohol consumption</li>
+                                    <li><b>1 - 7:</b> Light drinking (up to 1 unit per day)</li>
+                                    <li><b>8 - 14:</b> Moderate drinking (up to 2 units per day)</li>
+                                    <li><b>15 - 20:</b> Heavy drinking</li>
+                                </ul>
+                                <p>Excessive alcohol consumption is linked to cognitive decline and an increased risk of
+                                    Alzheimer's.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physical Activity -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#physicalActivityInfo">
+                                Physical Activity
+                            </button>
+                        </h2>
+                        <div id="physicalActivityInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 10</b>
+                                <ul>
+                                    <li><b>0:</b> No physical activity</li>
+                                    <li><b>1 - 3:</b> Very low (minimal movement or occasional activity)</li>
+                                    <li><b>4 - 6:</b> Moderate (light to moderate activity a few times per week)</li>
+                                    <li><b>7 - 9:</b> High (regular exercise most days of the week)</li>
+                                    <li><b>10:</b> Very high (daily, intense or athlete-level activity)</li>
+                                </ul>
+                                <p>Regular physical activity supports brain health, improves memory, and reduces the
+                                    risk of Alzheimer's
+                                    disease.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diet Quality -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#dietQualityInfo">
+                                Diet Quality
+                            </button>
+                        </h2>
+                        <div id="dietQualityInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 10</b>
+                                <ul>
+                                    <li><b>0 - 3:</b> Poor diet quality (high in unhealthy foods, low in fruits and
+                                        vegetables)</li>
+                                    <li><b>4 - 6:</b> Average diet quality (moderate balance of healthy and unhealthy
+                                        foods)</li>
+                                    <li><b>7 - 10:</b> High diet quality (rich in fruits, vegetables, whole grains, and
+                                        lean proteins)</li>
+                                </ul>
+                                <p>A balanced diet with proper nutrition supports brain health and helps reduce the risk
+                                    of cognitive decline.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Sleep Quality -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#sleepQualityInfo">
+                                Sleep Quality
+                            </button>
+                        </h2>
+                        <div id="sleepQualityInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 4 to 10</b>
+                                <ul>
+                                    <li><b>4 - 5:</b> Poor sleep quality (difficulty falling asleep, frequent waking,
+                                        feeling tired in the morning)</li>
+                                    <li><b>6 - 7:</b> Average sleep quality (occasional disturbances, generally restful)
+                                    </li>
+                                    <li><b>8 - 10:</b> Good sleep quality (consistent, uninterrupted, and restful sleep)
+                                    </li>
+                                </ul>
+                                <p>Quality sleep is essential for brain function, memory consolidation, and reducing
+                                    Alzheimer's risk.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Systolic BP -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#systolicBPInfo">
+                                Systolic Blood Pressure (mmHg)
+                            </button>
+                        </h2>
+                        <div id="systolicBPInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 90 to 180 mmHg</b>
+                                <ul>
+                                    <li><b>90 - 120:</b> Normal</li>
+                                    <li><b>121 - 139:</b> Elevated</li>
+                                    <li><b>140 - 180:</b> High (Hypertension)</li>
+                                </ul>
+                                <p>High systolic blood pressure is a major cardiovascular risk and has been associated
+                                    with an increased
+                                    likelihood of cognitive decline and Alzheimer’s disease.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diastolic BP -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#diastolicBPInfo">
+                                Diastolic Blood Pressure (mmHg)
+                            </button>
+                        </h2>
+                        <div id="diastolicBPInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 60 to 120 mmHg</b>
+                                <ul>
+                                    <li><b>60 - 80:</b> Normal</li>
+                                    <li><b>81 - 89:</b> Elevated</li>
+                                    <li><b>90 - 120:</b> High (Hypertension)</li>
+                                </ul>
+                                <p>Elevated diastolic pressure can increase the risk of vascular damage and has been
+                                    correlated with
+                                    impaired brain function and memory issues in later life.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cholesterol Total -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cholesterolTotalInfo">
+                                Cholesterol Total (mg/dL)
+                            </button>
+                        </h2>
+                        <div id="cholesterolTotalInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 150 to 300 mg/dL</b>
+                                <ul>
+                                    <li><b>150 - 199:</b> Desirable</li>
+                                    <li><b>200 - 239:</b> Borderline High</li>
+                                    <li><b>240 - 300:</b> High</li>
+                                </ul>
+                                <p>High total cholesterol levels are associated with an increased risk of cardiovascular
+                                    diseases and
+                                    cognitive impairment, which may contribute to Alzheimer's progression.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cholesterol LDL -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cholesterolLDLInfo">
+                                Cholesterol LDL (Low-Density Lipoprotein)
+                            </button>
+                        </h2>
+                        <div id="cholesterolLDLInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 50 to 200 mg/dL.</b>
+                                <ul>
+                                    <li>50-100 mg/dL: Optimal</li>
+                                    <li>101-129 mg/dL: Near or above optimal</li>
+                                    <li>130-159 mg/dL: Borderline high</li>
+                                    <li>160-200 mg/dL: High to very high</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cholesterol HDL -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cholesterolHDLInfo">
+                                Cholesterol HDL (High-Density Lipoprotein)
+                            </button>
+                        </h2>
+                        <div id="cholesterolHDLInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 20 to 100 mg/dL</b>
+                                <ul>
+                                    <li><b>20 - 39 mg/dL:</b> Low HDL cholesterol level (associated with a higher risk
+                                        of heart disease and cognitive decline)</li>
+                                    <li><b>40 - 60 mg/dL:</b> Optimal HDL cholesterol level (helps remove bad
+                                        cholesterol and reduce Alzheimer's risk)</li>
+                                    <li><b>61 - 100 mg/dL:</b> High HDL cholesterol level (associated with lower risk of
+                                        heart disease and better brain health)</li>
+                                </ul>
+                                <p>HDL cholesterol is often referred to as "good cholesterol" because it helps remove
+                                    excess LDL ("bad" cholesterol) from the bloodstream, reducing the risk of
+                                    cardiovascular diseases and potentially lowering Alzheimer's risk.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cholesterol Triglycerides -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#cholesterolTriglyceridesInfo">
+                                Cholesterol Triglycerides
+                            </button>
+                        </h2>
+                        <div id="cholesterolTriglyceridesInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 50 to 400 mg/dL</b>
+                                <ul>
+                                    <li><b>50 - 150 mg/dL:</b> Normal triglyceride level (low risk for cardiovascular
+                                        issues and Alzheimer's)</li>
+                                    <li><b>151 - 199 mg/dL:</b> Borderline high triglyceride level (increased risk of
+                                        heart disease and metabolic issues)</li>
+                                    <li><b>200 - 499 mg/dL:</b> High triglyceride level (associated with a greater risk
+                                        of cognitive decline and cardiovascular diseases)</li>
+                                    <li><b>500> mg/dL:</b> Very high triglyceride level (severe risk for metabolic
+                                        syndrome, heart disease, and possible impact on brain health)</li>
+                                </ul>
+                                <p>Triglycerides are a type of fat found in the blood. Elevated triglyceride levels have
+                                    been linked to an increased risk of Alzheimer's disease and other cognitive
+                                    impairments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MMSE -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mmseInfo">
+                                MMSE (Mini-Mental State Examination)
+                            </button>
+                        </h2>
+                        <div id="mmseInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 30.</b>
+                                <ul>
+                                    <li>24-30: No cognitive impairment</li>
+                                    <li>18-23: Mild cognitive impairment</li>
+                                    <li>0-17: Severe cognitive impairment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Functional Assessment -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#functionalAssessmentInfo">
+                                Functional Assessment
+                            </button>
+                        </h2>
+                        <div id="functionalAssessmentInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 10</b>
+                                <ul>
+                                    <li><b>0 - 3:</b> Severe impairment in daily activities</li>
+                                    <li><b>4 - 6:</b> Moderate impairment</li>
+                                    <li><b>7 - 10:</b> Minimal or no impairment</li>
+                                </ul>
+                                <p>This score assesses a person’s ability to perform routine tasks. Lower scores
+                                    indicate higher dependence,
+                                    often linked with cognitive decline.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Complaints -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#memoryComplaintsInfo">
+                                Memory Complaints
+                            </button>
+                        </h2>
+                        <div id="memoryComplaintsInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Values: Yes / No</b>
+                                <ul>
+                                    <li><b>Yes:</b> User reports noticeable memory issues</li>
+                                    <li><b>No:</b> No self-reported memory problems</li>
+                                </ul>
+                                <p>Subjective memory complaints are often early indicators of cognitive issues and are
+                                    considered in
+                                    Alzheimer’s risk assessment.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Behavioral Problems -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#behavioralProblemsInfo">
+                                Behavioral Problems
+                            </button>
+                        </h2>
+                        <div id="behavioralProblemsInfo" class="accordion-collapse collapse"
+                            data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 5</b>
+                                <ul>
+                                    <li><b>0:</b> No behavioral symptoms</li>
+                                    <li><b>1 - 2:</b> Mild issues (e.g., occasional mood swings)</li>
+                                    <li><b>3 - 4:</b> Moderate issues (e.g., agitation, anxiety)</li>
+                                    <li><b>5:</b> Severe behavioral problems (e.g., aggression, delusions)</li>
+                                </ul>
+                                <p>Behavioral symptoms often accompany cognitive decline and can affect quality of life
+                                    and care
+                                    requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADL -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#adlInfo">
+                                ADL (Activities of Daily Living)
+                            </button>
+                        </h2>
+                        <div id="adlInfo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                            <div class="accordion-body">
+                                <b>Range: 0 to 10</b>
+                                <ul>
+                                    <li><b>0 - 3:</b> Severe difficulty with basic daily tasks</li>
+                                    <li><b>4 - 6:</b> Moderate difficulty</li>
+                                    <li><b>7 - 10:</b> Independent or minimal difficulty</li>
+                                </ul>
+                                <p>ADL scores help measure the individual’s ability to carry out basic tasks such as
+                                    bathing, dressing, and
+                                    eating. Lower scores may indicate cognitive or physical impairments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+<script>
+    document.getElementById('riskForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+        const formData = new FormData(this);
+        fetch('/predict', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                const resultBox = document.getElementById('resultBox');
+                document.getElementById('result').innerText = data.result;
+                resultBox.classList.remove('d-none');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>

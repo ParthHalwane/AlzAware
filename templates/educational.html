@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Educational Hub | Alzheimer's Companion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Segoe UI', sans-serif;
+            color: #343a40;
+        }
+
+        .card {
+            border: none;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .card-text {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+
+        .btn-sm {
+            font-weight: 500;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #9339f3, #4d8dfb);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7e80ec, #65acd7);
+        }
+
+        .ratio iframe {
+            border-radius: 0.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .accordion-collapse {
+            background-color: #d5e2f8b0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="section-title">🧠 Alzheimer's Education Hub</h2>
+        <p class="text-center mb-4 text-muted">
+            Learn more about Alzheimer's disease, symptoms, prevention, and care strategies.
+        </p>
+
+        <div class="row g-4">
+            <!-- Existing Cards -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">What is Alzheimer's?</h5>
+                        <p class="card-text">Understand the basics of Alzheimer's disease, how it affects the brain, and
+                            common early signs.</p>
+                        <a href="https://www.alz.org/alzheimers-dementia/what-is-alzheimers" target="_blank"
+                            class="btn btn-primary btn-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">10 Early Signs of Alzheimer’s</h5>
+                        <p class="card-text">Learn to differentiate between typical age-related memory loss and
+                            Alzheimer's symptoms.</p>
+                        <a href="https://www.alz.org/alzheimers-dementia/10_signs" target="_blank"
+                            class="btn btn-primary btn-sm">View Signs</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Preventive Tips</h5>
+                        <p class="card-text">Explore science-backed tips for reducing your risk of developing
+                            Alzheimer’s later in life.</p>
+                        <a href="https://www.alzheimers.net/11-things-you-can-do-to-prevent-alzheimers" target="_blank"
+                            class="btn btn-primary btn-sm">Read Tips</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Caring for Loved Ones</h5>
+                        <p class="card-text">Support strategies for caregivers — emotional, physical, and medical
+                            guidance for families.</p>
+                        <a href="https://www.helpguide.org/articles/alzheimers-dementia-aging/caring-for-a-person-with-alzheimers-disease.htm"
+                            target="_blank" class="btn btn-primary btn-sm">Visit Resource</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Watch: Brain Health 101</h5>
+                        <p class="card-text">A short video explaining brain changes and how lifestyle impacts memory and
+                            cognition.</p>
+                        <a href="https://www.youtube.com/watch?v=Rzxr9FeZf1g" target="_blank"
+                            class="btn btn-primary btn-sm">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Nutrition for Brain Health</h5>
+                        <p class="card-text">Find out what foods support long-term cognitive health and may reduce
+                            Alzheimer's risk.</p>
+                        <a href="https://www.medicalnewstoday.com/articles/324044" target="_blank"
+                            class="btn btn-primary btn-sm">Explore Foods</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Additions -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Understanding Risk Factors</h5>
+                        <p class="card-text">Learn how genetics, lifestyle, and environment contribute to Alzheimer's
+                            and how to mitigate risks.</p>
+                        <a href="https://www.alz.org/alzheimers-dementia/what-is-alzheimers/causes-and-risk-factors"
+                            target="_blank" class="btn btn-primary btn-sm">Know the Risks</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Stages of Alzheimer's</h5>
+                        <p class="card-text">Explore the 7 stages of Alzheimer’s to better understand the progression of
+                            symptoms over time.</p>
+                        <a href="https://www.alz.org/alzheimers-dementia/stages" target="_blank"
+                            class="btn btn-primary btn-sm">View Stages</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Latest Research & Trials</h5>
+                        <p class="card-text">Stay up to date with new clinical trials and research on Alzheimer’s
+                            prevention and treatment.</p>
+                        <a href="https://www.alz.org/alzheimers-dementia/research_progress" target="_blank"
+                            class="btn btn-primary btn-sm">Explore Research</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs justify-content-center mt-5" id="eduTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="faq-tab" data-bs-toggle="tab" data-bs-target="#faq" type="button"
+                    role="tab">FAQs</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pdfs-tab" data-bs-toggle="tab" data-bs-target="#pdfs" type="button"
+                    role="tab">PDFs</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="videos-tab" data-bs-toggle="tab" data-bs-target="#videos" type="button"
+                    role="tab">Videos</button>
+            </li>
+        </ul>
+
+        <div class="tab-content pt-3" id="eduTabContent">
+            <div class="tab-pane fade show active" id="faq" role="tabpanel">
+                <!-- FAQ Content -->
+                <div class="accordion" id="faqAccordion">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a1">
+                                <b>
+                                    What is Alzheimer’s disease?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Alzheimer's is a progressive brain disorder that slowly destroys memory, thinking
+                                skills, and eventually the ability to
+                                carry out simple tasks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a2">
+                                <b>
+                                    What are the early signs of Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Common early signs include memory loss, confusion with time or place, difficulty
+                                completing familiar tasks, and trouble
+                                finding the right words.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a3">
+                                <b>
+                                    Is Alzheimer’s the same as dementia?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                No. Dementia is an umbrella term for memory loss and cognitive decline; Alzheimer’s is
+                                the most common type of dementia.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a4">
+                                <b>
+                                    Can young people get Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                While rare, early-onset Alzheimer’s can affect people under 65, sometimes as early as
+                                their 30s or 40s.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a5">
+                                <b>
+                                    Is there a cure for Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Currently, there is no cure. However, treatments and lifestyle changes can slow
+                                progression and improve quality of life.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q6">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a6">
+                                <b>
+                                    What causes Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The exact cause is unknown, but it's linked to a combination of genetics, lifestyle, and
+                                environmental factors that
+                                affect the brain over time.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q7">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a7">
+                                <b>
+                                    Is Alzheimer’s hereditary?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Genetics can play a role, especially in early-onset cases. However, lifestyle and
+                                environment are also key factors in
+                                most cases.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q8">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a8">
+                                <b>
+                                    How is Alzheimer’s diagnosed?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Doctors diagnose Alzheimer’s through cognitive tests, medical history, brain imaging
+                                (like MRI/CT), and sometimes lab
+                                tests.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q9">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a9">
+                                <b>
+                                    Can lifestyle changes help prevent Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes. A healthy diet, regular exercise, mental stimulation, good sleep, and managing
+                                chronic conditions may lower the
+                                risk.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q10">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a10">
+                                <b>
+                                    What are the stages of Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Alzheimer’s typically progresses through early, middle, and late stages, with increasing
+                                levels of memory loss and
+                                dependence.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q11">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a11">
+                                <b>
+                                    What’s the difference between Alzheimer’s and normal aging?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Normal aging may involve some forgetfulness, but Alzheimer’s causes consistent memory
+                                decline and difficulty performing
+                                daily tasks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q12">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#a12">
+                                <b>
+                                    How can I support someone with Alzheimer’s?
+                                </b>
+                            </button>
+                        </h2>
+                        <div id="a12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Offer patience, create a routine, communicate clearly, and seek support groups or
+                                professional care when needed.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pdfs" role="tabpanel">
+                <!-- PDF Content -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        🧾 <strong>Alzheimer’s Care Guide</strong> –
+                        <a href="/docs/alzheimers-careguide.pdf" download
+                            class="btn btn-outline-primary btn-sm">Download</a>
+                    </li>
+                    <li class="list-group-item">
+                        🧠 <strong>Memory Improvement Exercises</strong> –
+                        <a href="/docs/memory-tips.pdf" download class="btn btn-outline-success btn-sm">Download</a>
+                    </li>
+                    <li class="list-group-item">
+                        🍎 <strong>Brain-Healthy Diet Chart</strong> –
+                        <a href="/docs/brain-diet.pdf" download class="btn btn-outline-info btn-sm">Download</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="videos" role="tabpanel">
+                <!-- Video Carousel -->
+                <div class="row g-4">
+                    <!-- Video Card 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/wfLP8fFrOp0"
+                                    title="What is Alzheimer's Disease?" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">What is Alzheimer's Disease?</h5>
+                                <p class="card-text">A quick intro to Alzheimer's, its symptoms, and how it progresses
+                                    in the brain.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/Fz1OSnDVq5w"
+                                    title="Symptoms, Causes, and Stages of Alzheimer's" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Causes & Stages</h5>
+                                <p class="card-text">In-depth info on causes, symptoms, diagnosis, and stages of
+                                    Alzheimer’s.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/1nf3cg6Zb-E" title="Managing Dementia Stages"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Managing Dementia</h5>
+                                <p class="card-text">How to manage the progression of dementia across its different
+                                    stages.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/ndvj3j8L1zc"
+                                    title="Dementia & Alzheimer's Disease" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dementia & Alzheimer's Disease</h5>
+                                <p class="card-text">An informative video explaining the differences between dementia
+                                    and Alzheimer's, including biological insights.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/lkRda3DZzBM"
+                                    title="Alzheimer's Awareness - Warning Signs" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Alzheimer's Awareness - Warning Signs</h5>
+                                <p class="card-text">A video highlighting early warning signs of Alzheimer's disease and
+                                    the importance of early detection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/w6EqyEjuq3A"
+                                    title="What is Alzheimer's Disease and Why Does it Happen?"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">What is Alzheimer's Disease and Why Does it Happen?</h5>
+                                <p class="card-text">An exploration into the causes of Alzheimer's disease and its
+                                    impact on individuals and families.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/LwxWsZGkK18"
+                                    title="What is Alzheimer's Disease? | Causes, Symptoms, and Prevention"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">What is Alzheimer's Disease? | Causes, Symptoms, and Prevention
+                                </h5>
+                                <p class="card-text">A video designed for younger audiences to understand Alzheimer's
+                                    disease, its symptoms, and preventive measures.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/oIMjP2t5Xn4"
+                                    title="Alzheimer's Disease: A Guide for Patients and Families"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Alzheimer's Disease: A Guide for Patients and Families</h5>
+                                <p class="card-text">Hosted by actress Lea Thompson, this video offers guidance for
+                                    patients and families dealing with Alzheimer's.​</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/8qt5USQOviA"
+                                    title="Alzheimer's Awareness Month 2025" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Alzheimer's Awareness Month 2025</h5>
+                                <p class="card-text">A recent video commemorating Alzheimer's Awareness Month, focusing
+                                    on support for those affected.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center mt-5 mb-4">
+        <a href="/" class="btn btn-dark">Back to Home</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
