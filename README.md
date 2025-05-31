@@ -26,3 +26,6 @@ Early detection and lifestyle adjustments can significantly improve cognitive he
 1. Clone the repository
 2. Open `index.html` in your browser
 3. Explore all features!
+
+## System Architecture
+![Sys Arch](https://github.com/user-attachments/assets/a2ffee61-dab0-4ce5-aa44-b2dce1ffd450)
